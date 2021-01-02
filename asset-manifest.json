@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/investment-calculator/static/css/main.ce6e807a.chunk.css",
+    "main.css": "/investment-calculator/static/css/main.77bcb287.chunk.css",
     "main.js": "/investment-calculator/static/js/main.6f79a600.chunk.js",
     "main.js.map": "/investment-calculator/static/js/main.6f79a600.chunk.js.map",
     "runtime-main.js": "/investment-calculator/static/js/runtime-main.b0bdb3e5.js",
@@ -8,13 +8,13 @@
     "static/js/2.dc7db28a.chunk.js": "/investment-calculator/static/js/2.dc7db28a.chunk.js",
     "static/js/2.dc7db28a.chunk.js.map": "/investment-calculator/static/js/2.dc7db28a.chunk.js.map",
     "index.html": "/investment-calculator/index.html",
-    "static/css/main.ce6e807a.chunk.css.map": "/investment-calculator/static/css/main.ce6e807a.chunk.css.map",
+    "static/css/main.77bcb287.chunk.css.map": "/investment-calculator/static/css/main.77bcb287.chunk.css.map",
     "static/js/2.dc7db28a.chunk.js.LICENSE.txt": "/investment-calculator/static/js/2.dc7db28a.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.b0bdb3e5.js",
     "static/js/2.dc7db28a.chunk.js",
-    "static/css/main.ce6e807a.chunk.css",
+    "static/css/main.77bcb287.chunk.css",
     "static/js/main.6f79a600.chunk.js"
   ]
 }
