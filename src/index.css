@@ -11,3 +11,31 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.header {
+  text-align: center;
+}
+
+/* .App {
+  text-align: center;
+} */
+
+.graph-container {
+  display: grid;
+  grid-template-columns: minmax(300px, 70%) 1fr;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+#initial {
+  display: block;
+  width: 300px;
+}
+
+.pieLegend {
+  display: grid;
+  text-align: left;
+  width: 400px;
+  margin-left: 800px;
+}
