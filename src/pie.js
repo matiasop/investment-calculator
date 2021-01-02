@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Pie } from "@visx/shape";
 import { Group } from "@visx/group";
 import { scaleOrdinal } from "@visx/scale";
@@ -7,7 +7,7 @@ import { localPoint } from '@visx/event';
 import investment_calculator from './logic';
 
 function PieChart({ initial, years, r, contribution }) {
-  let investment = investment_calculator(initial, years, r, contribution);
+  let investment = investment_calculator(Number(initial), Number(years), Number(r), Number(contribution));
 
   // find the total amount gained by interests
   let sum_interest = 0;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Group } from "@visx/group";
 import { AreaStack, Line } from "@visx/shape";
 import { AxisLeft, AxisBottom } from "@visx/axis";
@@ -9,10 +9,10 @@ import { localPoint } from '@visx/event';
 import investment_calculator from './logic';
 
 const Stacked = ({ initial, years, r, contribution }) => {
-  // Data and keys
-  let data = investment_calculator(initial, years, r, contribution);
-  const keys = ["start_principal", "interest", "start_balance"];
 
+  // Data and keys
+  let data = investment_calculator(Number(initial), Number(years), Number(r), Number(contribution));
+  const keys = ["start_principal", "interest", "start_balance"];
   // Data accesor
   const x = d => new Date(d.date);
 
