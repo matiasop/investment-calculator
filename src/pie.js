@@ -118,7 +118,7 @@ function PieChart({ initial, years, r, contribution }) {
                         onMouseEnter={(event) => {
                           const toolText = `${name} \n ${(perecentages[name] * 100).toFixed(2)}%`;
                           const coords = localPoint(event.target.ownerSVGElement, event);
-                          showTooltip({ tooltipLeft: coords.x, tooltipTop: coords.y, tooltipData: toolText, tooltipOpen: false });
+                          showTooltip({ tooltipLeft: coords.x - 200, tooltipTop: coords.y, tooltipData: toolText, tooltipOpen: false });
                           // showTooltip({ tooltipLeft: centroidX + width / 3, tooltipTop: centroidY + height, tooltipData: toolText, tooltipOpen: false });
                         }}
                         onMouseLeave={(event) => {

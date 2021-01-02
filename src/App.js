@@ -32,8 +32,8 @@ function App() {
       </div> */}
       <div className="App">
         <div className="graph-container">
-          <Stacked {...calculator_info} />
-          <PieChart {...calculator_info} />
+          <Stacked className="stacked-chart" {...calculator_info} />
+          <PieChart className="pie-chart" {...calculator_info} />
         </div>
         <div className="pieLegend">
           <MyChart />
