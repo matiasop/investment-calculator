@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Pie } from "@visx/shape";
 import { Group } from "@visx/group";
 import { scaleOrdinal } from "@visx/scale";
@@ -8,6 +8,8 @@ import investment_calculator from './logic';
 
 function PieChart({ initial, years, r, contribution }) {
   let investment = investment_calculator(initial, years, r, contribution);
+  const [valor, setValue] = useState(initial);
+  useEffect(() => { setValue(initial) }, [initial]);
 
   // find the total amount gained by interests
   let sum_interest = 0;
@@ -82,11 +84,12 @@ function PieChart({ initial, years, r, contribution }) {
         // ref={containerRef}
         // className="tooltip-example"
         style={{ width, height }}
+        key={Math.random() - valor}
       // onPointerMove={handlePointerMove}
       >
         <>
           <TooltipWithBounds
-            key={Math.random()} // needed for bounds to update correctly
+            key={Math.random() - valor} // needed for bounds to update correctly
             left={tooltipLeft + 900}
             top={tooltipTop}
             style={tooltipStyles}
@@ -96,12 +99,13 @@ function PieChart({ initial, years, r, contribution }) {
         </>
 
         <svg width={width} height={height}>
-          <Group top={top} left={left}>
+          <Group top={top} left={left} key={Math.random() - value}>
             <Pie
               data={data}
               pieValue={value}
               outerRadius={radius}
               pieSortValues={pieSortValues}
+              key={Math.random() - valor}
             >
               {(pie) => {
                 return pie.arcs.map((arc, index) => {

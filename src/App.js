@@ -1,35 +1,24 @@
 import Stacked from './stacked';
 import PieChart from './pie';
 import MyChart from './legend';
+import React, { useState } from 'react';
 
 function App() {
+  const [finitial, setFinitial] = useState(10000);
+  const [fyears, setfyears] = useState(20);
+  const [fr, setfr] = useState(0.07);
+  const [fcontribution, setfcontribution] = useState(100);
+
   const calculator_info = {
-    initial: 10000,
+    initial: finitial,
     years: 20,
     r: 0.07,
     contribution: 100,
   }
+
   return (
     <>
       <h1 className="header">Investment Calculator</h1>
-      {/* <div className="menu" width="500px" height="400px">
-        <table className="panel" width="100%">
-          <tr>
-            <td width="45%" valign="top">
-              <form name="info_form">
-                <table id="initial">
-                  <tbody>
-                    <tr>
-                      <td width="180">Initial Amount</td>
-                      <input type="text" value="10000"></input>
-                    </tr>
-                  </tbody>
-                </table>
-              </form>
-            </td>
-          </tr>
-        </table>
-      </div> */}
       <div className="App">
         <div className="graph-container">
           <Stacked className="stacked-chart" {...calculator_info} />
@@ -38,6 +27,11 @@ function App() {
         <div className="pieLegend">
           <MyChart />
         </div>
+      </div>
+      <div className="menu">
+        <span className="menu-text">Initial Amount</span>
+        <input className="menu-input" value={finitial} type="text" onChange={(e) => setFinitial(e.target.value)} />
+        <p>{finitial}</p>
       </div>
     </>
   )

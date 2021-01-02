@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Group } from "@visx/group";
 import { AreaStack, Line } from "@visx/shape";
 import { AxisLeft, AxisBottom } from "@visx/axis";
@@ -9,10 +9,13 @@ import { localPoint } from '@visx/event';
 import investment_calculator from './logic';
 
 const Stacked = ({ initial, years, r, contribution }) => {
-  // Data and keys
-  let data = investment_calculator(initial, years, r, contribution);
-  const keys = ["start_principal", "interest", "start_balance"];
+  const [value, setValue] = useState(initial);
+  useEffect(() => { setValue(initial) }, [initial]);
 
+  // Data and keys
+  // let data = investment_calculator(initial, years, r, contribution);
+  let data = investment_calculator(value, years, r, contribution);
+  const keys = ["start_principal", "interest", "start_balance"];
   // Data accesor
   const x = d => new Date(d.date);
 
@@ -81,9 +84,11 @@ const Stacked = ({ initial, years, r, contribution }) => {
   return (
     <div
       style={{ width, height }}
+      key={Math.random() - value}
     >
+      <p>{value}</p>
       <TooltipWithBounds
-        key={Math.random()} // needed for bounds to update correctly
+        key={Math.random() - value} // needed for bounds to update correctly
         left={tooltipLeft}
         top={tooltipTop}
         style={tooltipStyles}
@@ -91,8 +96,9 @@ const Stacked = ({ initial, years, r, contribution }) => {
         {tooltipData}
       </TooltipWithBounds>
       <svg width={width} height={height}>
-        <Group top={margin.top} left={margin.left}>
+        <Group top={margin.top} left={margin.left} key={Math.random() - value}>
           <AreaStack
+            key={Math.random() - value}
             keys={keys}
             data={data}
             stroke="white"
@@ -129,6 +135,7 @@ const Stacked = ({ initial, years, r, contribution }) => {
             }}
           />
           <Line
+            key={Math.random() - value}
             from={{ x: tooltipLeft - widthTT / 2, y: margin.top }}
             to={{ x: tooltipLeft - widthTT / 2, y: margin.top + height }}
             // stroke={'#75daad'}
@@ -137,8 +144,8 @@ const Stacked = ({ initial, years, r, contribution }) => {
             // pointerEvents="none"
             strokeDasharray="5,2"
           />
-          <AxisLeft scale={yScale} />
-          <AxisBottom top={yMax} scale={xScale} />
+          <AxisLeft scale={yScale} key={Math.random() - value} />
+          <AxisBottom top={yMax} scale={xScale} key={Math.random() - value} />
         </Group>
       </svg>
     </div>
